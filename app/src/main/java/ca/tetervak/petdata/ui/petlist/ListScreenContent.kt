@@ -56,7 +56,7 @@ fun PetListItem(pet: Pet, onClick: () -> Unit) {
             modifier = Modifier.padding(16.dp)
         ){
             AsyncImage(
-                model = "file:///android_asset/images/${pet.image}",
+                model = pet.imageUrl,
                 contentDescription = "${pet.petKind} ${pet.name}"
             )
             Column(

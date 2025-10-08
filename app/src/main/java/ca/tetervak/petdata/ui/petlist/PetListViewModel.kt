@@ -1,5 +1,6 @@
 package ca.tetervak.petdata.ui.petlist
 
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -31,7 +32,8 @@ class PetListViewModel @Inject constructor(
 
             _uiState.value = try {
                 PetListUiState.Success(repository.getAllPets())
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                Log.e("PetListViewModel", "loadData: ${e.message}")
                 PetListUiState.Error
             }
         }

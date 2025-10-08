@@ -14,12 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ca.tetervak.petdata.R
 import ca.tetervak.petdata.domain.Pet
-import ca.tetervak.petdata.ui.theme.PetDataTheme
 import coil.compose.AsyncImage
 
 @Composable
@@ -51,7 +49,7 @@ fun DetailsScreenContent(pet: Pet, modifier: Modifier = Modifier) {
             }
 
             AsyncImage(
-                model = "file:///android_asset/images/${pet.image}",
+                model = pet.imageUrl,
                 contentDescription = "${pet.petKind} ${pet.name}"
             )
 

@@ -13,7 +13,7 @@ abstract class RepositoryModule {
     @Singleton
     @Binds
     abstract fun bindPetDataRepository(
-        repository: FakePetDataRepository
+        repository: RemotePetDataRepository
     ): PetDataRepository
 
 }

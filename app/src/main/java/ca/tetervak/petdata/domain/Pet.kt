@@ -5,5 +5,5 @@ data class Pet(
     val name: String,
     val petKind: String,
     val age: Int,
-    val image: String
+    val imageUrl: String
 )
