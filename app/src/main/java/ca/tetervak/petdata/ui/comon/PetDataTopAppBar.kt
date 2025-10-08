@@ -2,6 +2,7 @@ package ca.tetervak.petdata.ui.comon
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -22,7 +23,7 @@ import ca.tetervak.petdata.R
 fun PetDataTopAppBar(
     title: String,
     scrollBehavior: TopAppBarScrollBehavior,
-    onHelpButtonClick: (() -> Unit)? = null,
+    onReloadButtonClick: (() -> Unit)? = null,
     onNavigateBack: (() -> Unit)? = null
 ) = CenterAlignedTopAppBar(
     title = {
@@ -43,23 +44,26 @@ fun PetDataTopAppBar(
         }
     },
     actions = {
-        if (onHelpButtonClick != null){
+        if (onReloadButtonClick != null){
             IconButton(
-                onClick = onHelpButtonClick,
+                onClick = onReloadButtonClick,
                 colors = IconButtonDefaults.iconButtonColors(
                     contentColor = MaterialTheme.colorScheme.primary
                 )
             ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.baseline_help_outline_24),
-                    contentDescription = stringResource(R.string.about)
+                    imageVector = Icons.Outlined.Refresh,
+                    contentDescription = stringResource(R.string.reload)
                 )
             }
         }
     },
-    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+    colors = TopAppBarDefaults.topAppBarColors(
         containerColor = MaterialTheme.colorScheme.primaryContainer,
+        scrolledContainerColor = MaterialTheme.colorScheme.primaryContainer,
+        navigationIconContentColor = MaterialTheme.colorScheme.primary,
         titleContentColor = MaterialTheme.colorScheme.primary,
+        actionIconContentColor = MaterialTheme.colorScheme.primary
     ),
     scrollBehavior = scrollBehavior,
 )

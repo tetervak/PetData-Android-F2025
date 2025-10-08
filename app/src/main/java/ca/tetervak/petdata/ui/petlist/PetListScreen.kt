@@ -11,6 +11,8 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import ca.tetervak.petdata.R
+import ca.tetervak.petdata.ui.comon.ErrorScreenContent
+import ca.tetervak.petdata.ui.comon.LoadingScreenContent
 import ca.tetervak.petdata.ui.comon.PetDataTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,15 +31,22 @@ fun PetListScreen(
         topBar = {
             PetDataTopAppBar(
                 title = stringResource(R.string.list_title),
+                onReloadButtonClick = viewModel::reloadData,
                 scrollBehavior = scrollBehavior
             )
         }
     ) { innerPadding ->
-        ListBody(
-            petList = uiState.pets,
-            onItemClick = onItemClick,
-            modifier = modifier.padding(innerPadding)
-        )
+        when(uiState){
+            is PetListUiState.Loading -> LoadingScreenContent()
+            is PetListUiState.Error -> ErrorScreenContent(
+                onRetry = viewModel::reloadData
+            )
+            is PetListUiState.Success -> ListScreenContent(
+                petList = uiState.pets,
+                onItemClick = onItemClick,
+                modifier = modifier.padding(innerPadding)
+            )
+        }
     }
 }
 

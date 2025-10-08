@@ -24,7 +24,7 @@ import ca.tetervak.petdata.domain.Pet
 import coil.compose.AsyncImage
 
 @Composable
-fun ListBody(
+fun ListScreenContent(
     petList: List<Pet>,
     modifier: Modifier,
     onItemClick: (Int) -> Unit

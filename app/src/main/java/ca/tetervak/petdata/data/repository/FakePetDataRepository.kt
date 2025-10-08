@@ -7,7 +7,7 @@ import javax.inject.Inject
 class FakePetDataRepository @Inject constructor(
 ): PetDataRepository {
 
-    override fun getAllPets(): List<Pet> = fakePetList
+    override suspend fun getAllPets(): List<Pet> = fakePetList
 
-    override fun getPetById(id: Int): Pet? = fakePetList.find { it.id == id }
+    override suspend fun getPetById(id: Int): Pet? = fakePetList.find { it.id == id }
 }

@@ -2,4 +2,8 @@ package ca.tetervak.petdata.ui.petlist
 
 import ca.tetervak.petdata.domain.Pet
 
-data class PetListUiState(val pets: List<Pet>)
+sealed interface PetListUiState {
+    object Loading: PetListUiState
+    data class Success(val pets: List<Pet>): PetListUiState
+    object Error: PetListUiState
+}
