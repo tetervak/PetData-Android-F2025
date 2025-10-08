@@ -9,7 +9,7 @@ import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import ca.tetervak.petdata.R
 import ca.tetervak.petdata.ui.comon.PetDataTopAppBar
 
@@ -17,7 +17,7 @@ import ca.tetervak.petdata.ui.comon.PetDataTopAppBar
 @Composable
 fun PetListScreen(
     modifier: Modifier = Modifier,
-    viewModel: PetListViewModel = viewModel(),
+    viewModel: PetListViewModel = hiltViewModel(),
     onItemClick: (Int) -> Unit = {}
 ){
     val state: State<PetListUiState> = viewModel.uiState

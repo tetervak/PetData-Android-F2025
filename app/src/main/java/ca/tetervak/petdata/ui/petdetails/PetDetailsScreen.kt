@@ -22,7 +22,7 @@ import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import ca.tetervak.petdata.R
 import ca.tetervak.petdata.domain.Pet
 import ca.tetervak.petdata.ui.comon.PetDataTopAppBar
@@ -32,7 +32,7 @@ import coil.compose.AsyncImage
 @Composable
 fun PetDetailsScreen(
     modifier: Modifier = Modifier,
-    viewModel: PetDetailsViewModel = viewModel(),
+    viewModel: PetDetailsViewModel = hiltViewModel(),
     onNavigateBack: (() -> Unit)? = null
 ){
     val state: State<PetDetailsUiState> = viewModel.uiState
