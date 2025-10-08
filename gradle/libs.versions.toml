@@ -12,6 +12,7 @@ lifecycleViewmodelCompose = "2.9.4"
 coilCompose = "2.7.0"
 materialIconsExtended = "1.7.8"
 navigationCompose = "2.9.5"
+ksp = "2.2.20-2.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,4 +38,4 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-
+devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
